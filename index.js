@@ -31,14 +31,14 @@ const changePlayer = () => {
         player = "p2";
         console.log("its now players twos turn");
         // playerTwoStatus.textContent = "Player 2's turn";
-        boardOne.style.backgroundColor = "orange";
-        boardTwo.style.backgroundColor = "white";
+        boardOne.style.backgroundColor = "white";
+        boardTwo.style.backgroundColor = "orange";
     } else {
         player = "p1";
         console.log("its now player ones turn");
         // playerOneStatus.textContent = "Player 1's turn";
-        boardTwo.style.backgroundColor = "orange";
-        boardOne.style.backgroundColor = "white";
+        boardTwo.style.backgroundColor = "white";
+        boardOne.style.backgroundColor = "orange";
     }
    
 }
@@ -59,8 +59,10 @@ const diceRoll = () => {
 const reset = () => {
     if (player === "p1") {
         playerOnePoints = 0;
+       
     } else {
         playerTwoPoints = 0;
+        
     }
 }
 // simplified to player takes turn and 1st to roll 20 or more
@@ -97,7 +99,6 @@ const checkWinner = () => {
 
 //STARTS THE GAME
 rollButton.addEventListener("click", () => {
-    
     diceRoll();
     // changePlayer();
     diceImage.src = `img/dice${numberRolled}.png`;
@@ -152,3 +153,7 @@ const checkHoldScore = () => {
 //     }
 //     updateScore();
 // }
+
+/* original change player function 
+
+*/
