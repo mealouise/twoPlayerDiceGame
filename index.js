@@ -30,13 +30,15 @@ const changePlayer = () => {
     if ( player === "p1") { 
         player = "p2";
         console.log("its now players twos turn");
-        // playerTwoStatus.textContent = "Player 2's turn";
+        playerTwoStatus.textContent = "Player 2's turn";
+        playerOneStatus.textContent = "Player 1";
         boardOne.style.backgroundColor = "white";
         boardTwo.style.backgroundColor = "orange";
     } else {
         player = "p1";
         console.log("its now player ones turn");
-        // playerOneStatus.textContent = "Player 1's turn";
+        playerOneStatus.textContent = "Player 1's turn";
+        playerTwoStatus.textContent = "Player 2";
         boardTwo.style.backgroundColor = "white";
         boardOne.style.backgroundColor = "orange";
     }
@@ -97,26 +99,35 @@ const checkWinner = () => {
     }
 }
 
-//STARTS THE GAME
+//ROLL DICE
 rollButton.addEventListener("click", () => {
     diceRoll();
     // changePlayer();
     diceImage.src = `img/dice${numberRolled}.png`;
 });
 
-//RESETS THE GAME
-resetButton.addEventListener("click", () => {
-    playerTwoStatus.textContent = "Player 2's turn";
+
+//STARTS THE GAME
+const startGame = () => {
+    playerTwoStatus.textContent = "Player 2";
     playerOneStatus.textContent = "Player 1's turn";
     playerOnePoints = 0;
     playerOneScore.textContent = playerOnePoints;
     playerOneHold == 0;
     playerOneTotalScore.textContent = 0;
+    boardOne.style.backgroundColor = "orange";
     playerTwoPoints = 0;
     playerTwoScore.textContent = playerTwoPoints;
     playerTwoHold == 0;
     playerTwoTotalScore.textContent = 0;
-})
+    boardTwo.style.backgroundColor = "white";
+};
+
+//RESETS THE GAME
+resetButton.addEventListener("click", startGame);
+
+//START GAME ON LOAD
+document.addEventListener("DOMContentLoaded", startGame);
 
 //HOLD SCORE
 holdButton.addEventListener("click", () => {
