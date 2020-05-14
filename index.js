@@ -144,10 +144,10 @@ holdButton.addEventListener("click", () => {
 const checkHoldScore = () => {
     if ( playerOneHold == 0) {
         playerOnePoints = 0;
-        playerOneScore.textContent = playerOnePoints;
+        playerOneScore.textContent = 0;
     } else if (playerTwoHold == 0) {
         playerTwoPoints = 0;
-        playerTwoScore.textContent = playerTwoPoints;
+        playerTwoScore.textContent = 0;
     }
     
 }
